@@ -64,7 +64,9 @@ const contactRows: { label: string; labelEn: string; icon?: IconName; items: Acc
   home
 >
   <!-- 开场三屏：宽屏时固定在视口内，首屏画面旋转收缩成菱形，再由左右两张图盖上 -->
-  <div class="intro" id="top">
+  <!-- 回到顶部的锚点放在固定区外：固定时 .intro 的位置会跟着滚动变，跳过去会落到开场末尾 -->
+  <div id="top"></div>
+  <div class="intro">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media">
         {site.heroVideo ? (
@@ -269,7 +271,7 @@ const contactRows: { label: string; labelEn: string; icon?: IconName; items: Acc
               ))}
             </ol>
           ) : (
-            <p class="t-quote" data-reveal {...en('Articles are on the way. Published pieces will appear here.')}>文章整理中。已发表的文章会陆续放在这里。</p>
+            <p class="thoughts__empty" data-reveal {...en('Articles are on the way. Published pieces will appear here.')}>文章整理中。已发表的文章会陆续放在这里。</p>
           )}
         </div>
       </div>
